@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>View Events</title>
+</head>
+<body>
+<form>
+<table>
+<tr th:each="currentEvent : ${events}">
+	<td th:text="${currentEvent.id}"/>
+	<td th:text="${currentEvent.eventName}"/>
+	<td th:text="${currentEvent.organizerName}"/>
+	<td th:text="${currentEvent.eventCost}"/>
+	<td th:text="${currentEvent.date.month}"/>
+	<td th:text="${currentEvent.date.day}"/>
+	<td th:text="${currentEvent.date.year}"/>
+	<td><a th:href="@{/edit/{id}(id=${currentEvent.id})}">Edit</a></td>
+	<td><a th:href="@{/delete/{id}(id=${currentEvent.id})}">Delete</a></td>
+</tr>
+</table>
+</form>
+<a href="../addEvent">Add Event</a>
+</body>
+</html>
